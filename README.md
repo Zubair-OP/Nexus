@@ -45,7 +45,7 @@ Git & GitHub workflow (forking and updating projects)
 
 👨‍💻 Author
 
-Muhammad Zubair
+Muhammad Zubair /
 Mern Stack Developer
 
 
