@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Menu, X, Bell, MessageCircle, User, LogOut, Building2, CircleDollarSign } from 'lucide-react';
+import { Menu, X, Bell, MessageCircle, User, LogOut, Building2, CircleDollarSign, CalendarDays, Video, WalletCards, ShieldCheck, FileText } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { Avatar } from '../ui/Avatar';
 import { Button } from '../ui/Button';
@@ -50,6 +50,14 @@ export const Navbar: React.FC = () => {
       text: 'Profile',
       path: profileRoute,
     }
+  ];
+
+  const featureLinks = [
+    { icon: <CalendarDays size={18} />, text: 'Calendar', path: '/calendar' },
+    { icon: <Video size={18} />, text: 'Video', path: '/video' },
+    { icon: <FileText size={18} />, text: 'Chamber', path: '/document-chamber' },
+    { icon: <WalletCards size={18} />, text: 'Payments', path: '/payments' },
+    { icon: <ShieldCheck size={18} />, text: 'Security', path: '/security' },
   ];
   
   return (
@@ -172,6 +180,20 @@ export const Navbar: React.FC = () => {
                     <LogOut size={18} className="mr-3" />
                     Logout
                   </button>
+                </div>
+
+                <div className="border-t border-gray-200 pt-2">
+                  {featureLinks.map((link, index) => (
+                    <Link
+                      key={index}
+                      to={link.path}
+                      className="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span className="mr-3">{link.icon}</span>
+                      {link.text}
+                    </Link>
+                  ))}
                 </div>
               </>
             ) : (
